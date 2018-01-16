@@ -2,16 +2,15 @@ package edu
 
 package object knoldus {
 
-  /*def runLength(list:List[Int]):List[List[Int]] = {
-      list match {
-        case head :: head1 :: tail if (head == head1) => runLength(head1,)
-        case head :: head1 :: tail if (head != head1) => runLength(head1 :: tail)
-        case head :: Nil => (head, counter)
 
-      }
+  def runLength[T](list: List[T]): List[(Int, T)] = list match {
+    case Nil => List()
+    case head :: tail => {
+      val (back, front) = tail.span(_ == head)
+      (front.length + 1, head) :: runLength(back)
     }
   }
-  */
+
 
   def rotateList(index: Int, list: List[Char]): List[Char] = {
     list match {
@@ -21,7 +20,21 @@ package object knoldus {
   }
 
 
-  def happySadChecker(number: Int) {
+  def happySadChecker(number: Int):Boolean ={
+    (if number <=9)
+    {
+      val sumOfSquare = number*number
+      if(sumOfSquare>9)
+        {
+          happySadChecker(sumOfSquare)
+        }
+    }
+    else
+    {
+      val sumOfSquare = 
+    }
+
+
 
   }
 

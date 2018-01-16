@@ -12,7 +12,7 @@ object Application extends App {
   val fifth = 2;
   val sixth = 3
   val list2 = List(first, second, third, fourth, fifth, sixth)
-  //log.info(runLength(list2))
+  log.info(runLength(list2) + "\n")
   val char1= 'a'
   val char2= 'b'
   val char3 = 'c'
