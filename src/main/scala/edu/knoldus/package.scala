@@ -20,22 +20,23 @@ package object knoldus {
   }
 
 
-  def happySadChecker(number: Int):Boolean ={
-    (if number <=9)
-    {
-      val sumOfSquare = number*number
-      if(sumOfSquare>9)
-        {
-          happySadChecker(sumOfSquare)
+  def happySadChecker(number: Int,list:List[Int]):Boolean = {
+    def sumOfSquares(sum: Int, number: Int): Int = {
+      number match {
+        case 0 => sum
+        case _ => sumOfSquares(sum + (number % 10) * (number % 10),number/10)
+      }
+    }
+   val n= sumOfSquares(0,number)
+    n match{
+      case 1 => true
+      case _ => {
+        list.contains(n) match{
+          case true => false
+          case false =>happySadChecker(n,n::list)
         }
+      }
     }
-    else
-    {
-      val sumOfSquare = 
-    }
-
-
-
   }
 
   def consecutiveElimination(outputList: List[Char], list: List[Char]): List[Char] = {
